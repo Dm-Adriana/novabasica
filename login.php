@@ -67,11 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     Iniciar Sesión
                 </button>
             </form>
-            
-            <div class="mt-6 text-center text-sm text-gray-600">
-                <p>Usuario de prueba: adriana_17@novasalud.com</p>
-                <p>Contraseña: admin123</p>
-            </div>
         </div>
     </div>
 </body>
