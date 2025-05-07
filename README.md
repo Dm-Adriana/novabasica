@@ -1,4 +1,4 @@
-# Nova Salud
+# Botica Nova
 
 **Versión:** 1.0.0
 
