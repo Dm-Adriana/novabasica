@@ -1,5 +1,5 @@
 # Botica Nova
-
+# Adriana Marilu Diaz Mendo
 **Versión:** 1.0.0
 
 ## Descripción
