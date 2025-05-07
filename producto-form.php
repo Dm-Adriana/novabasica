@@ -71,62 +71,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-100">
+
     <?php include 'includes/header.php'; ?>
     
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-6 py-8">
         <div class="flex items-center mb-6">
             <a href="productos.php" class="text-blue-600 hover:text-blue-800 mr-4">
                 <i class="fas fa-arrow-left"></i> Volver
             </a>
-            <h1 class="text-3xl font-bold text-gray-800"><?php echo $isEdit ? 'Editar' : 'Nuevo'; ?> Producto</h1>
+            <h1 class="text-4xl font-bold text-gray-900"><?php echo $isEdit ? 'Editar' : 'Nuevo'; ?> Producto</h1>
         </div>
         
         <?php if (isset($error)): ?>
-        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-lg shadow-md" role="alert">
             <p><?php echo $error; ?></p>
         </div>
         <?php endif; ?>
         
-        <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="bg-white rounded-xl shadow-xl p-8 border border-gray-200">
             <form method="POST" action="">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
+                    <div class="mb-6">
                         <label for="nombre" class="block text-gray-700 font-medium mb-2">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" required value="<?php echo htmlspecialchars($producto['nombre']); ?>"
-                               class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div class="relative">
+                            <input type="text" id="nombre" name="nombre" required value="<?php echo htmlspecialchars($producto['nombre']); ?>"
+                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 transition ease-in-out duration-300">
+                            <i class="fas fa-box absolute left-3 top-3 text-gray-500"></i>
+                        </div>
                     </div>
                     
-                    <div>
+                    <div class="mb-6">
                         <label for="precio" class="block text-gray-700 font-medium mb-2">Precio (S/)</label>
-                        <input type="number" id="precio" name="precio" required step="0.01" min="0" value="<?php echo htmlspecialchars($producto['precio']); ?>"
-                               class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div class="relative">
+                            <input type="number" id="precio" name="precio" required step="0.01" min="0" value="<?php echo htmlspecialchars($producto['precio']); ?>"
+                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 transition ease-in-out duration-300">
+                            <i class="fas fa-dollar-sign absolute left-3 top-3 text-gray-500"></i>
+                        </div>
                     </div>
                     
-                    <div>
+                    <div class="mb-6">
                         <label for="stock" class="block text-gray-700 font-medium mb-2">Stock</label>
-                        <input type="number" id="stock" name="stock" required min="0" value="<?php echo htmlspecialchars($producto['stock']); ?>"
-                               class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div class="relative">
+                            <input type="number" id="stock" name="stock" required min="0" value="<?php echo htmlspecialchars($producto['stock']); ?>"
+                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 transition ease-in-out duration-300">
+                            <i class="fas fa-cogs absolute left-3 top-3 text-gray-500"></i>
+                        </div>
                     </div>
                     
-                    <div class="md:col-span-2">
+                    <div class="md:col-span-2 mb-6">
                         <label for="descripcion" class="block text-gray-700 font-medium mb-2">Descripción</label>
-                        <textarea id="descripcion" name="descripcion" rows="3"
-                                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"><?php echo htmlspecialchars($producto['descripcion']); ?></textarea>
+                        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Ingrese una descripción breve del producto"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-gray-800 transition ease-in-out duration-300"><?php echo htmlspecialchars($producto['descripcion']); ?></textarea>
                     </div>
                 </div>
                 
-                <div class="mt-6 flex justify-end">
-                    <a href="productos.php" class="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition duration-200 mr-2">
+                <div class="mt-8 flex justify-end space-x-6">
+                    <a href="productos.php" class="bg-gray-600 text-white py-3 px-6 rounded-lg hover:bg-gray-700 transition duration-200">
                         Cancelar
                     </a>
-                    <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200">
+                    <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-200">
                         <?php echo $isEdit ? 'Actualizar' : 'Guardar'; ?> Producto
                     </button>
                 </div>
             </form>
         </div>
     </div>
-    
+
     <?php include 'includes/footer.php'; ?>
 </body>
 </html>
