@@ -11,3 +11,4 @@ Este sistema web permite gestionar los productos, clientes, ventas y el inventar
 - PHP 7.4 o superior
 - Servidor web (XAMPP)
 - Base de datos MySQL
+- JavaScript
