@@ -40,3 +40,27 @@
         </div>
     </div>
 </header>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = document.getElementById("menu-icon");
+
+        menuButton.addEventListener("click", function () {
+            const isOpen = mobileMenu.classList.contains("max-h-0");
+
+            if (isOpen) {
+                mobileMenu.classList.remove("max-h-0");
+                mobileMenu.classList.add("max-h-screen");
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-times");
+            } else {
+                mobileMenu.classList.remove("max-h-screen");
+                mobileMenu.classList.add("max-h-0");
+                menuIcon.classList.remove("fa-times");
+                menuIcon.classList.add("fa-bars");
+            }
+        });
+    });
+</script>
+
